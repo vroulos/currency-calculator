@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+   {% include "include/head.html.twig" %}
+    {% block body %}
+             {{ include('include/nav.html.twig') }}
+       <div class="container pt-5 pb-5">
+        <div id="app-vue">
+
+
+       {{ form(form) }}
+
+       </div>
+        <div>
+        {% if result is defined %}
+            <h5> {{ amount }}<span class="to">{{ fromCurrency }} =</span></h5>
+           <h1> {{ result }}<span class="to">{{ toCurrency }}</span></h1>
+           {% endif %}
+        </div>
+ 
+    
+    {% endblock %}
+
+
+        <script>
+        
+
+
+new Vue({
+    el: '#app-vue',
+    data:{
+        
+        form: {
+            value:null,
+            from:null,
+            to:null
+        }
+    },
+
+    methods: {
+        submit:function()
+        {
+            if(!this.form.value){
+                return false;
+                alert('allaal');
+            }
+
+            
+            axios.post('/computeCurrency', {
+              value: this.form.value,
+              from: this.form.from,
+              to: this.form.to
+            })
+              .then((response) => {
+                const data = response.data;
+                console.log(data);
+                // this.users.push(data);
+                // this.newUser = '';
+                // this.submitting = false;
+              });    
+
+        }
+    }
+
+ 
+});
+
+        </script>
+
+        
+<style lang="scss" scoped>
+   h3{
+        margin-top: 30px;
+    }
+
+    .btn{
+        margin-top: 30px;
+    }
+
+    .to{
+        font-size: 15px;
+    }
+</style>
+      
+     
+       
+            {# import vue.js #}
+        
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+            {# <script src="app.js"></script> #}
+   
+</html>

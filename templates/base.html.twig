@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}
+               <form id="app">
+            <h3>Amount</h3>
+            <input type="number" v-model.number="form.value" class="form-control">
+
+            <h3>From</h3>
+            <select id="select" v-model="form.from" class="form-control">
+            <option selected>Euro</option>
+            <option value="1">US Dollar</option>
+            <option>Swiss Franc</option>
+            <option>British Pound</option>
+            <span>Selected:  </span>
+            </select>
+            
+            <h3>To</h3>
+            <select v-model="form.to" class="form-control">
+            <option>Euro</option>
+            <option selected>US Dollar</option>
+            <option>Swiss Franc</option>
+            <option>British Pound</option>
+            </select>
+
+            <button type="submit" @click="submit"  class="btn btn-dark">Convert</button>
+           
+       </form>
+        
+        {% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
