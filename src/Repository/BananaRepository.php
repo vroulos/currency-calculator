@@ -36,6 +36,19 @@ class BananaRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+
+    public function setCurrency($fromCurrencyId, $toCurrencyId){
+        return $this->createQueryBuilder('bobos')
+        ->andWhere('bobos.FromCurrencyId= :from')
+        ->andWhere('bobos.toCurrencyId= : to')
+        ->setParameter('from', $from)
+        ->setParameter('to', $to)
+        //->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult()
+            //->getResult()
+        ;
+    }
     
 
     /*

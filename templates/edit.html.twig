@@ -1,0 +1,14 @@
+{% include "include/head.html.twig" %}
+{% include "/include/nav.html.twig" %}
+
+<div class="container">
+<h3>Here you can find current currencies based on EURO if you want to update yours</h3>
+
+<ul>
+    {% for key, value in rates %}
+        <li>{{ key|e }} : {{ value|e }}  </li>
+        
+    {% endfor %}
+</ul>
+</div>
+
