@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+   {% include "include/head.html.twig" %}
+    {% block body %}
+             {{ include('include/nav.html.twig') }}
+       <div class="container pt-5 pb-5">
+        <div id="app">
+        <App />
+
+       </div>
+    {% endblock %}
+
+   {% block javascripts %}
+       <script src="{{ asset('build/app.js') }}"></script>
+       {{ encore_entry_script_tags('app') }}
+   {% endblock %}

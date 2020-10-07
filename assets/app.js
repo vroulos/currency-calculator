@@ -11,4 +11,25 @@ import './styles/app.css';
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 // import $ from 'jquery';
 
+
+import Vue from 'vue'
+import App from './js/App.vue'
+
+new Vue({
+    el: "#app",
+    components: {App},
+    data:{
+        message: 'trela edo pera',
+        form: {
+            value:null,
+            from:null,
+            to:null
+        }
+    }, 
+
+    mounted(){
+        alert("aera");
+    }
+});
+
 console.log('Hello Webpack Encore! Edit me in assets/app.js');

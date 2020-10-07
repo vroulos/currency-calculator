@@ -7,6 +7,7 @@ new Vue({
     el: "#app",
     components: {App},
     data:{
+        message: 'trela edo pera',
         form: {
             value:null,
             from:null,

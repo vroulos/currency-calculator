@@ -227,5 +227,16 @@ class currencyController extends AbstractController{
         ]);
     }
 
+    
+     /**
+     * @Route("/test")
+     * Methond({"GET", "POST"})
+     */
+    public function testVue(){
+        return $this->render('test.html.twig',[
+            
+        ]);
+    }
+
 
 }
