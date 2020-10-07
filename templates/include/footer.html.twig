@@ -1,0 +1,32 @@
+<div id="footer" >
+        {% block footer %}
+            &copy; Copyright {{ "now"|date("Y") }} by <a class="link">vroulos development</a>.
+        {% endblock %}
+</div>
+
+
+<style>
+
+#footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+a{
+    color: black;
+}
+</style>
+
+<script >
+    const link = document.querySelector('.link');
+
+    link.addEventListener('click', () => {
+        window.open('https://vroulos.github.io/','_blank');
+    });
+  
+</script>

@@ -4,11 +4,16 @@
 <div class="container">
 <h3>Here you can find current currencies based on EURO if you want to update yours</h3>
 
-<ul>
+<ul class="list-group" >
     {% for key, value in rates %}
-        <li>{{ key|e }} : {{ value|e }}  </li>
+        <li class="list-group-item">{{ key|e }} : {{ value|e }}  </li>
         
     {% endfor %}
 </ul>
 </div>
 
+<style>
+    ul{
+        width:30vw;
+    }
+</style>
